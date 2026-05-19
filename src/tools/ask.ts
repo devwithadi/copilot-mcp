@@ -21,16 +21,31 @@ export const askTool: McpTool = {
           type: "string",
           description: "The AI model to use.",
         },
+        effort: {
+          type: "string",
+          description: "Reasoning effort level. Choices: low, medium, high, xhigh.",
+          enum: ["low", "medium", "high", "xhigh"],
+        },
+        agent: {
+          type: "string",
+          description: "Specify a custom agent to use.",
+        },
       },
       required: ["prompt"],
     },
   },
   handler: async (args: any) => {
-    const { prompt, cwd, model } = args as { prompt: string; cwd?: string; model?: string };
+    const { prompt, cwd, model, effort, agent } = args as { prompt: string; cwd?: string; model?: string; effort?: string; agent?: string };
 
     const copilotArgs = ["-p", prompt, "--no-ask-user"];
     if (model) {
       copilotArgs.push("--model", model);
+    }
+    if (effort) {
+      copilotArgs.push("--effort", effort);
+    }
+    if (agent) {
+      copilotArgs.push("--agent", agent);
     }
 
     console.error(`Asking Copilot...`);
