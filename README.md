@@ -84,8 +84,7 @@ You can directly run this server in any standard MCP client using `npx`:
 }
 ```
 
-*Note: Since it's currently a local package, to use `npx` locally you can specify the absolute path to the folder:*
-
+*Note: If you are running this locally, you can use the following configuration:
 ```json
 {
   "mcpServers": {
