@@ -1,0 +1,30 @@
+{
+  "name": "@devwithadi/copilot-mcp",
+  "version": "1.0.0",
+  "description": "An MCP server for interacting with GitHub Copilot",
+  "main": "build/index.js",
+  "type": "module",
+  "files": [
+    "build"
+  ],
+  "bin": {
+    "copilot-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "watch": "tsc --watch",
+    "start": "node build/index.js",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.1.1",
+    "execa": "^9.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2",
+    "shx": "^0.3.4"
+  },
+  "author": "",
+  "license": "ISC"
+}
